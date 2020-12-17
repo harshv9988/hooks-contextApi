@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import { ThemeContext } from "./index";
 
-function App() {
+import Harsh from "./Harsh";
+
+export default function App() {
+  const themes = useContext(ThemeContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button
+        style={{
+          background: themes.dark.background,
+          color: themes.dark.foreground,
+        }}
+      >
+        I am styled by theme context!
+      </button>
+      <Harsh />
     </div>
   );
 }
-
-export default App;
